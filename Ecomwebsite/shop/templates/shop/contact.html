@@ -1,0 +1,36 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} Title of About{% endblock %}
+{% block body %}
+
+<div class="container my-3">
+    <form action="/shop/contact/" method="POST">{% csrf_token %}
+    <div class="mb-3">
+  <label for="name" class="form-label">Name</label>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Enter you name here...">
+</div>
+        <div class="mb-3">
+  <label for="name" class="form-label">Email</label>
+  <input type="email" class="form-control" id="email" name="email" placeholder="Enter you email here...">
+</div>
+        <div class="mb-3">
+  <label for="name" class="form-label">Phone</label>
+  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter you phone number here...">
+</div>
+
+<div class="mb-3">
+  <label for="desc" class="form-label">Tell us the problem you are facing in the website!</label>
+  <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+</div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+
+<script>
+{% if thank %}
+alert('Thanks for your valuable time. We will reach to you soon.');
+{% endif %}
+</script>
+
+
+{% endblock %}
